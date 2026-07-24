@@ -4,7 +4,8 @@ permissions:
   contents: read
   statuses: write
 jobs:
-  feature-pipeline: Shankar-t-Codes/reuseable-workflows/.github/workflows/featured-node-js-pipeline.yaml@main
+  feature-pipeline: 
+    uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/featured-node-js-pipeline.yaml@main
   with:
     project: roboshop
     component: catalogue
