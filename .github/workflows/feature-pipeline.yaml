@@ -1,5 +1,8 @@
 name: feature-pipeline
 on: [push]
+permissions:
+  contents: read
+  statuses: write
 jobs:
   feature-pipeline: Shankar-t-Codes/reuseable-workflows/.github/workflows/featured-node-js-pipeline.yaml@main
   with:
