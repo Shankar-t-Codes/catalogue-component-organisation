@@ -14,7 +14,7 @@ jobs:
       environment: dev
     secrets: inherit
 
-    feature-pipeline:
+    dev-pipeline:
     if: github.ref == 'refs/head/main' # if main branch. it works
     uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/dev-node-js-pipeline.yaml@main
     with:
