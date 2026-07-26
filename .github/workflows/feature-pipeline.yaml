@@ -6,7 +6,7 @@ permissions:
   security-events: read
 jobs: 
   feature-pipeline:
-    if: github.ref != 'refs/head/main' # if not main branch. it works
+    if: github.ref != 'refs/heads/main' # if not main branch. it works
     uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/featured-node-js-pipeline.yaml@main
     with:
       project: ellamma-ecommerce
@@ -15,7 +15,7 @@ jobs:
     secrets: inherit
 
     dev-pipeline: #dev
-    if: github.ref == 'refs/head/main' # if main branch. it works
+    if: github.ref == 'refs/heads/main' # if main branch. it works
     uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/dev-node-js-pipeline.yaml@main
     with:
       project: ellamma-ecommerce
