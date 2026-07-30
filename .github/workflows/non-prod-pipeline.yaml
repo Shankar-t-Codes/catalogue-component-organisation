@@ -1,0 +1,32 @@
+name: non-prod-pipeline
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Please enter SHA code"
+        required: true
+        type: string
+      environment:
+        description: "Please select the environment"
+        type: choice
+        options:
+          - qa
+          - sit
+          - uat
+        required: true
+        default: uat
+concurrency:
+  group: roboshop-catalogue-nonprod
+  cancel-in-progress: false
+permissions:
+  contents: read
+  statuses: write
+  security-events: read
+jobs: 
+  non-prod-pipeline:
+    if: github.ref == 'refs/heads/main' # if not main branch. it works
+    uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/non-prod-pipeline.yaml@main
+    with:
+      version: ${{ inputs.version }}
+      environment: ${{ inputs.environment }}
+    secrets: inherit
