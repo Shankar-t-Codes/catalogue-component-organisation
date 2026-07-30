@@ -15,6 +15,9 @@ on:
           - uat
         required: true
         default: uat
+concurrency:
+  group: roboshop-catalogue-nonprod
+  cancel-in-progress: false
 permissions:
   contents: read
   statuses: write
@@ -27,4 +30,3 @@ jobs:
       version: ${{ inputs.version }}
       environment: ${{ inputs.environment }}
     secrets: inherit
-
