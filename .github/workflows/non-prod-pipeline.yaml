@@ -21,7 +21,7 @@ permissions:
   security-events: read
 jobs: 
   non-prod-pipeline:
-    if: github.ref != 'refs/heads/main' # if not main branch. it works
+    if: github.ref == 'refs/heads/main' # if not main branch. it works
     uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/non-prod-pipeline.yaml@main
     with:
       version: ${{ inputs.version }}
