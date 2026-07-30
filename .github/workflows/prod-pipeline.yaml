@@ -1,0 +1,23 @@
+name: prod-pipeline
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Please enter SHA code"
+        required: true
+        type: string
+concurrency:
+  group: roboshop-catalogue-prod
+  cancel-in-progress: false
+permissions:
+  contents: read
+  statuses: write
+  security-events: read
+jobs: 
+  prod-pipeline:
+    if: github.ref == 'refs/heads/main' # if not main branch. it works
+    uses: Shankar-t-Codes/reuseable-workflows/.github/workflows/prod-pipeline.yaml@main
+    with:
+      version: ${{ inputs.version }}
+      environment: ${{ inputs.environment }}
+    secrets: inherit
